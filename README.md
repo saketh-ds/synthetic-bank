@@ -1,5 +1,5 @@
 # Quantitative Macroeconomic & Synthetic Banking Terminal
-### MSc Data Science Research Project — University of Leicester
+
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111.0-009688.svg?style=flat&logo=FastAPI&logoColor=white)](https://fastapi.tiangolo.com)
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black.svg?style=flat&logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -24,79 +24,16 @@ All models are trained and validated on canonical UK monthly macroeconomic time 
 
 | Target Banking Aggregate | Model Architecture | Key Features / Lags | Metric ^2$ / Accuracy | MAE | RMSE |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mortgage Approvals** | **XGBoost Regressor** | Bank Rate, CPI, GDP, Unemployment, HPI, Mortgage Lag | **^2 = 0.7154$** | 3,322.13 | 4,413.14 |
-| **Consumer Credit** | **Random Forest Regressor** | Bank Rate, CPI, GDP, Unemployment, Consumer Credit Lag | **^2 = 0.9215$** | 584.08 | 787.92 |
-| **Savings Accounts** | **Scaled Linear Regression** | Bank Rate, CPI, GDP, Unemployment, HPI, Savings Lag | **^2 = 0.9950$** | 1,944.04 | 2,614.21 |
-| **Current Accounts** | **Scaled Linear Regression** | Bank Rate, CPI, GDP, Unemployment, HPI, Current Acc Lag | **^2 = 0.9297$** | 4,104.52 | 7,711.75 |
-| **Credit Card Lending** | **Scaled Linear Regression** | Bank Rate, CPI, GDP, Unemployment, Credit Card Lag | **^2 = 0.9959$** | 196.90 | 236.07 |
-| **Economic Regime** | **Logistic Classifier** | Bank Rate, CPI, GDP, Unemployment | **.91\%$ Acc** (Spec: 1.0) | ROC-AUC: 0.8958 | F1: 0.60 |
-
----
-
-## 3. Directory Structure
+| **Mortgage Approvals** | **XGBoost Regressor** | Bank Rate, CPI, GDP, Unemployment, HPI, Mortgage Lag | ** 0.7154** | 3,322.13 | 4,413.14 |
+| **Consumer Credit** | **Random Forest Regressor** | Bank Rate, CPI, GDP, Unemployment, Consumer Credit Lag | ** 0.9215** | 584.08 | 787.92 |
+| **Savings Accounts** | **Scaled Linear Regression** | Bank Rate, CPI, GDP, Unemployment, HPI, Savings Lag | ** 0.9350** | 1,944.04 | 2,614.21 |
+| **Current Accounts** | **Scaled Linear Regression** | Bank Rate, CPI, GDP, Unemployment, HPI, Current Acc Lag | 0.9297** | 4,104.52 | 7,711.75 |
+| **Credit Card Lending** | **Scaled Linear Regression** | Bank Rate, CPI, GDP, Unemployment, Credit Card Lag | ** 0.9459** | 196.90 | 236.07 |
+| **Economic Regime** | **Logistic Classifier** | Bank Rate, CPI, GDP, Unemployment | **.9103 ** | ROC-AUC: 0.8958 | F1: 0.60 |
 
 
-msc-dsr-projects-group-12/
-├── backend/                             # High-performance FastAPI backend server
-│   ├── main.py                          # Application entrypoint & CORS middleware
-│   ├── config.py                        # Path management & model registry configuration
-│   ├── database.py                      # SQLite database connection manager
-│   ├── auth.py                          # Cryptographic password hashing & JWT tokens
-│   ├── requirements.txt                 # Python package dependencies
-│   ├── routers/                         # Dedicated API domain routers
-│   │   ├── auth.py                      # User login and registration
-│   │   ├── historical.py                # 216-month historical macroeconomic data API
-│   │   ├── eda.py                       # Pearson correlations and statistical moments
-│   │   ├── timeseries.py                # ADF stationarity & seasonal decomposition
-│   │   ├── predict.py                   # Model evaluation curves and R²/MAE/RMSE
-│   │   ├── logistic.py                  # Economic distress classification
-│   │   ├── synthetic.py                 # SDMetrics quality reports & CTGAN/TVAE preview
-│   │   ├── customer.py                  # 2.16M customer longitudinal query engine
-│   │   ├── scenario.py                  # Multi-period macroeconomic stress testing
-│   │   └── reports.py                   # Quantitative executive summary exports
-│   └── services/                        # Business logic & machine learning math services
-│       ├── model_service.py             # Model inference & prediction pipelines
-│       ├── timeseries_service.py        # Statsmodels ADF & decomposition engine
-│       └── synthetic_service.py         # SDMetrics & generative sample loader
-│
-├── frontend/                            # Next.js 14 Institutional Trading Terminal UI
-│   ├── package.json                     # Frontend dependencies (React 18, Recharts, Lucide)
-│   ├── next.config.mjs                  # API rewrites & compilation configuration
-│   ├── tailwind.config.ts               # Dark quantitative theme color system
-│   └── src/
-│       ├── app/                         # App Router pages (Overview, EDA, TimeSeries, etc.)
-│       ├── components/                  # Reusable widgets (TerminalCard, MetricCard, etc.)
-│       └── lib/                         # API client & number formatting helpers
-│
-├── CLEANED DATA/                        # Normalized historical macroeconomic truth
-│   └── FINAL_DS.csv                     # 216 observations × 13 variables (2008–2025)
-│
-├── RAW_DATA/                            # Original Bank of England & ONS raw CSVs
-│
-├── python files/                        # Jupyter research & training notebooks
-│   ├── Consumer_Credit_Model.ipynb      # Consumer Credit regression training
-│   ├── Credit_Card_Model.ipynb          # Credit Card regression training
-│   ├── Current_Account_Model.ipynb      # Current Account regression training
-│   ├── Mortgage_Approvals_Model.ipynb   # Mortgage Approvals XGBoost training
-│   ├── Savings_Accounts_Model.ipynb     # Savings Deposits regression training
-│   ├── TimeSeries.ipynb                 # Econometric stationarity diagnostics
-│   ├── eda.ipynb                        # Exploratory data analysis & correlations
-│   └── logistic_regression.ipynb        # Economic regime classification
-│
-├── synthetic_bank/                      # Generative AI models and evaluation outputs
-│   ├── models/                          # Serialized .pkl binaries, scalers & features
-│   ├── synthetic_bank_outputs/          # SDMetrics evaluation JSONs & CTGAN/TVAE CSVs
-│   └── Synthetic_Bank.ipynb             # CTGAN & TVAE generative pipeline notebook
-│
-├── .gitignore                           # Excludes build caches, node_modules & temp DBs
-├── .env.example                         # Environment variable configuration template
-├── package.json                         # Root orchestration script runner (concurrently)
-└── README.md                            # Comprehensive project documentation
-`
 
----
-
-## 4. Quickstart & Local Installation
+## 3. Quickstart & Local Installation
 
 ### Prerequisites
 * **Python 3.10+**
@@ -137,7 +74,7 @@ npm run dev
 
 ---
 
-## 5. Deployment Guidelines for GitHub
+## 4. Deployment Guidelines for GitHub
 
 1. **Large File Handling**: Large databases (*.db, synthetic_bank.db) and build caches (.next/, 
 ode_modules/, __pycache__/) are excluded in .gitignore to keep the repository compact, fast, and compliant with GitHub's file size limits.
@@ -146,7 +83,7 @@ ode_modules/, __pycache__/) are excluded in .gitignore to keep the repository co
 
 ---
 
-## 6. Authors & Research Attribution
+## 5. Authors & Research Attribution
 
 **MSc Data Science Dissertation Project**  
 
