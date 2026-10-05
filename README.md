@@ -35,7 +35,7 @@ All models are trained and validated on canonical UK monthly macroeconomic time 
 
 ## 3. Directory Structure
 
-`	ext
+
 msc-dsr-projects-group-12/
 ├── backend/                             # High-performance FastAPI backend server
 │   ├── main.py                          # Application entrypoint & CORS middleware
@@ -149,10 +149,7 @@ ode_modules/, __pycache__/) are excluded in .gitignore to keep the repository co
 ## 6. Authors & Research Attribution
 
 **MSc Data Science Dissertation Project**  
-*Department of Mathematics and Data Science*  
-*University of Leicester*
+
 
 * **Saketh Pakala Sivasubramanyam**
-* **Nilesh Anand**
-* **Jones Sachin Vanathu Chinnappan**
-* **Sharma Murali Christian**
+
