@@ -22,7 +22,7 @@ Addressing the structural scarcity of longitudinal customer-level banking data a
 
 All models are trained and validated on canonical UK monthly macroeconomic time series (2008–2025, 216 monthly observations).
 
-| Target Banking Aggregate | Model Architecture | Key Features / Lags | Metric ^2$ / Accuracy | MAE | RMSE |
+| Target Banking Aggregate | Model Architecture | Key Features / Lags | Metric/ Accuracy | MAE | RMSE |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Mortgage Approvals** | **XGBoost Regressor** | Bank Rate, CPI, GDP, Unemployment, HPI, Mortgage Lag | ** 0.7154** | 3,322.13 | 4,413.14 |
 | **Consumer Credit** | **Random Forest Regressor** | Bank Rate, CPI, GDP, Unemployment, Consumer Credit Lag | ** 0.9215** | 584.08 | 787.92 |
@@ -49,7 +49,7 @@ cd msc-dsr-projects-group-12
 
 python -m venv .venv
  On Windows:
-.venv\Scriptsctivate
+.venv\Scriptsactivate
 
 ### Step 3: Install Frontend Dependencies
 `
