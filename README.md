@@ -40,21 +40,16 @@ All models are trained and validated on canonical UK monthly macroeconomic time 
 * **Node.js 18+** & **npm**
 
 ### Step 1: Clone Repository
-`ash
+
 git clone https://github.com/your-username/msc-dsr-projects-group-12.git
 cd msc-dsr-projects-group-12
-`
+
 
 ### Step 2: Install Backend Dependencies
-`ash
-python -m venv .venv
-# On Windows:
-.venv\Scriptsctivate
-# On macOS/Linux:
-source .venv/bin/activate
 
-pip install -r backend/requirements.txt
-`
+python -m venv .venv
+ On Windows:
+.venv\Scriptsctivate
 
 ### Step 3: Install Frontend Dependencies
 `ash
