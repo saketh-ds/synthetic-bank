@@ -52,14 +52,14 @@ python -m venv .venv
 .venv\Scriptsctivate
 
 ### Step 3: Install Frontend Dependencies
-`ash
+`
 npm install
 npm --prefix ./frontend install
 `
 
 ### Step 4: Run Application
 Start both Backend and Frontend concurrently with a single command:
-`ash
+`
 npm run dev
 `
 
