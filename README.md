@@ -52,16 +52,15 @@ python -m venv .venv
 .venv\Scriptsactivate
 
 ### Step 3: Install Frontend Dependencies
-`
+
 npm install
 npm --prefix ./frontend install
-`
+
 
 ### Step 4: Run Application
 Start both Backend and Frontend concurrently with a single command:
-`
+
 npm run dev
-`
 
 * **Frontend Dashboard**: [http://localhost:3000](http://localhost:3000)
 * **Backend API Docs (Swagger UI)**: [http://localhost:8000/docs](http://localhost:8000/docs)
